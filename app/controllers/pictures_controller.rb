@@ -35,15 +35,10 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
-
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    if @picture.save
+      redirect_to @picture, notice: 'Picture was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -73,12 +68,12 @@ class PicturesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def set_picture
-    @picture = Picture.find(params[:id])
-  end
+    def set_picture
+      @picture = Picture.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-  def picture_params
-    params.require(:picture).permit(:word, :image,:image_cache)
+    def picture_params
+      params.require(:picture).permit(:word, :image,:image_cache)
+    end
   end
-end
