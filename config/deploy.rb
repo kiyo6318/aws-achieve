@@ -56,13 +56,13 @@ namespace :deploy do
     end
   end
 
-   namespace :assets do
-    Rake::Task['deploy:assets:precompile'].clear_actions
-    desc "Precompile assets"
-    task :precompile do
-      puts "-----nothing-------"
-    end
-  end
+  #  namespace :assets do
+  #   Rake::Task['deploy:assets:precompile'].clear_actions
+  #   desc "Precompile assets"
+  #   task :precompile do
+  #     puts "-----nothing-------"
+  #   end
+  # end
 
   after :publishing, :restart
 
