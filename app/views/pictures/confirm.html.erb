@@ -2,7 +2,7 @@
 <%= form_with(model: @picture,url:pictures_path,local:true) do |form| %>
 <%= form.hidden_field :word %>
   <div class="col-xs-12"><%= @picture.word %></div>
-  <div class="col-xs-12"><%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></div>
+  <div class="col-xs-12"><%= image_url(@picture.image.url) if @picture.image && @picture.image.url %></div>
 <br>
 <%= form.hidden_field :image_cache %>
 <br>
