@@ -1,7 +1,7 @@
   <% @pictures.each do |picture| %>
     <div class="col-xs-12"><%= picture.user.name %></div>
     <div class="col-xs-12"><%= picture.word %></div>
-    <div class="col-xs-12"><%= image_url picture.image.url %></div>
+    <div class="col-xs-12"><%= image_tag picture.image.url %></div>
     <% if logged_in? %>
       <div class="col-xs-offset-1">
       <%= link_to '編集', edit_picture_path(picture),class: "btn btn-info" %>
