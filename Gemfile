@@ -21,6 +21,8 @@ gem 'dotenv-rails'
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
 gem 'jquery-rails'
+gem 'bootstrap-sass'
+
 group :development, :test do
   gem 'capistrano', '3.6.0'
   gem 'capistrano-bundler'
